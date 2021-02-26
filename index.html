@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spomenici</title>
+  <link rel="stylesheet" href="site.css"> 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+  crossorigin=""></script>
+</head>
+
+<body>
+  <div class="navbar">
+    <input placeholder="Pretrazite znamenitost" id="search" list="names">
+    <datalist id="names"></datalist>
+    <button class="searchButton" onclick="displayModal()"></button>
+  </div>
+
+  <div class="content">
+
+    <div id="dataDisplay">
+      <div class="tab">
+        <button class="tabLinks" onclick="openTab(this, 'City')">Grad</button>
+        <button class="tabLinks" onclick="openTab(this, 'Category')">Kategorija</button>
+      </div>
+
+      <div id="Category" class="tabContent">
+        <button onclick="categoryListLoading('Islamska kultura', 'ik')">Spomenici islamske kulture</button>
+        <ul id="ik"></ul>
+        <button onclick="categoryListLoading('Pravoslavna kultura', 'pk')">Spomenici pravoslavne kulture</button>
+        <ul id="pk"></ul>
+        <button onclick="categoryListLoading('Kulturno istorijski spomenici', 'ki')">Kulturno istorijski
+          spomenici</button>
+        <ul id="ki"></ul>
+        <button onclick="categoryListLoading('Poruseni objekti', 'po')">Poruseni objekti</button>
+        <ul id="po"></ul>
+        <button onclick="categoryListLoading('Prirodne lepote', 'pl')">Prirodne lepote</button>
+        <ul id="pl"></ul>
+        <button onclick="categoryListLoading('Gradske zanimljivosti', 'gz')">Gradske zanimljivosti</button>
+        <ul id="gz"></ul>
+      </div>
+
+      <div id="City" class="tabContent">
+        <button onclick="cityListLoading('Novi Pazar', 'np')">Novi Pazar</button>
+        <ul id="np"></ul>
+        <button onclick="cityListLoading('Tutin', 'tt')">Tutin</button>
+        <ul id="tt"></ul>
+        <button onclick="cityListLoading('Sjenica', 'sj')">Sjenica</button>
+        <ul id="sj"></ul>
+        <button onclick="cityListLoading('Raska', 'ra')">Raska</button>
+        <ul id="ra"></ul>
+      </div>
+
+    </div>
+
+    <!-- <button id="toggleButton" onclick="toggle()">Prikazi</button> -->
+    <div id="map"></div>
+
+  </div>
+  <div id="modal">
+    <div id="modalContent"></div>
+  </div>
+  <script src="main.js"></script>
+</body>
+
+</html>
