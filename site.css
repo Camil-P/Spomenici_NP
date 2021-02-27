@@ -69,6 +69,7 @@ body {
     border: 1px solid grey;
     /* background-image: url("recourses/map.jpg"); */
     box-shadow: 3px 7px 10px #888888;
+    z-index: 1;
 }
 
 /* #toggleButton{
@@ -179,6 +180,7 @@ a:hover {
     display: none;
     justify-content: center;
     align-items: center;
+    z-index: 2;
 }
 
 .gallery {

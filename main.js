@@ -11,20 +11,20 @@ class Sight {
     this.images = images;
   }
 
-  display(img){
+  display(img) {
     var txt = `<div class="gallery">`
-    if(img){      
+    if (img) {
       txt += `<img alt="${this.name}" class="mainPhoto" src="${img}" alt="hahu">`;
     }
-    else{      
+    else {
       txt += `<img alt="${this.name}" class="mainPhoto" src="${this.images[0]}" alt="hahu">`;
     }
     txt += `<div class="photoContainer">`
     this.images.forEach(i => {
-      txt +=`<img alt="${this.name}" onclick="loadMainPhoto(this)" class="mainPhoto" src="${i}" alt="hahu">`;
-    })    
-              
-    txt +=  `</div>
+      txt += `<img alt="${this.name}" onclick="loadMainPhoto(this)" class="mainPhoto" src="${i}" alt="hahu">`;
+    })
+
+    txt += `</div>
           </div>
 
           <div class="description">
@@ -41,34 +41,38 @@ class Sight {
 
 var alreadyLoadedLists = [];
 
-const MAP = L.map('map').setView([20.515304, 43.135457], 14.54);
-L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={pk.eyJ1IjoiY2FtaWwtcCIsImEiOiJja2xsZDA1bjcyYXJoMnVwcmNoeDJvazVsIn0.ZudGmBS8VAQfuJa7t1KKBg}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox/streets-v11',
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: 'pk.eyJ1IjoiY2FtaWwtcCIsImEiOiJja2xsZDA1bjcyYXJoMnVwcmNoeDJvazVsIn0.ZudGmBS8VAQfuJa7t1KKBg'
+// Making a Leaflet map ------------------------------------------------------------------------------------
+
+const ZOOM_LVL = 14;
+const LATITUDE = 43.135457;
+const LONGITUDE = 20.515304;
+const MAP = L.map('map').setView([LATITUDE, LONGITUDE], ZOOM_LVL);
+L.tileLayer(`https://api.maptiler.com/maps/topo/{z}/{x}/{y}.png?key=6c5zCLBq5h6myudXTawU`, {
+  attribution: `<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> 
+  <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>`,
 }).addTo(MAP);
+
+// ----------------------------------------------------------------------------------------------------------
+
 const DATA_DISPLAY = document.getElementById('dataDisplay');
 
-window.addEventListener('keyup', (event)=>{
-  if(event.which === 27){
+window.addEventListener('keyup', (event) => {
+  if (event.which === 27) {
     closeModal();
   }
 })
 
-function displayModal(name){
+function displayModal(name) {
   input = name ? name : document.getElementById('search').value;
 
   const searchSight = SIGHTS.find(s => s.name.toLowerCase().includes(input.toLowerCase()));
-  if(searchSight){
+  if (searchSight) {
     document.getElementById('modalContent').innerHTML = searchSight.display();
     document.getElementById('modal').style.display = 'flex';
   }
 }
 
-function loadMainPhoto(imgElement){
+function loadMainPhoto(imgElement) {
   displayedSight = SIGHTS.find(s => s.name === imgElement.alt);
   document.getElementById('modalContent').innerHTML = displayedSight.display(imgElement.src);
 }
@@ -125,7 +129,7 @@ function cityListLoading(filterName, listName) {
   }
 }
 
-function closeModal(){
+function closeModal() {
   document.getElementById('modal').style.display = 'none';
 }
 
