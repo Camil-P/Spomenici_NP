@@ -1,9 +1,14 @@
+*{
+    /* font-family: 'Shippori Mincho B1', serif; */
+    font-family: 'IM Fell DW Pica', serif;
+}
+
 body {
     margin: 0;
 }
 
 .navbar {
-    height: 90px;
+    height: 80px;
     width: 100%;
     background-image: linear-gradient(to top right, rgb(92, 164, 169), rgb(155, 193, 188));
     display: flex;
@@ -20,7 +25,8 @@ body {
     outline-style: none;
     border: none;
     border-radius: 10px;
-    font-size: larger;
+    font-size: 25px;
+    text-align: center;
 }
 
 .navbar > button {
@@ -45,7 +51,7 @@ body {
 .content {
     height: 47rem;
     width: 90%;
-    margin: 40px auto;
+    margin: 30px auto;
     display: flex;
     justify-content: space-between;
     position: relative;
@@ -54,10 +60,17 @@ body {
 #dataDisplay {
     height: 100%;
     width: 20%;
-    background-color: antiquewhite;
+    background-image: url('recourses/sand_background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     border-radius: 10px;
     box-shadow: 3px 7px 10px #888888;
     margin: auto;
+}
+
+ul{
+    list-style-type: none;
+    padding-left: 20px;
 }
 
 /* Map -------------------------------- */
@@ -67,7 +80,6 @@ body {
     width: 78%;
     border-radius: 10px;
     border: 1px solid grey;
-    /* background-image: url("recourses/map.jpg"); */
     box-shadow: 3px 7px 10px #888888;
     z-index: 1;
 }
@@ -114,7 +126,7 @@ body {
     outline: none;
     cursor: pointer;
     transition: 0.3s;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 /* Change background color of buttons on hover */
@@ -140,12 +152,14 @@ body {
     height: 7%;
     width: 98%;
     margin: 1%;
+    margin-top: 5%;
     background-image: linear-gradient(to top right, rgb(92, 164, 169), rgb(155, 193, 188));
     border: none;
     border-radius: 10px;
     transition: 0.3s;
     outline: none;
     font-size: medium;
+    font-size: 20px;
 }
 
 .tabContent > button:hover {
@@ -160,7 +174,7 @@ body {
 
 a {
     color: black !important;
-    font-size: large !important;
+    font-size: 25px !important;
 }
 
 a:hover {
@@ -184,18 +198,21 @@ a:hover {
 }
 
 .gallery {
-    height: 100%;
-    width: 55%;
+    height: 98%;
+    width: 53%;
+    margin: auto;
 }
 
 #modalContent {
     position: relative;
-    background-color: antiquewhite;
     height: 80%;
     width: 70%;
     border-radius: 10px;
     display: flex;
     flex-direction: row;
+    background-image: url('recourses/sand_background_width-rotate.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .mainPhoto {
@@ -237,7 +254,6 @@ a:hover {
 }
 
 .description > * {
-    height: 5%;
     width: 75%;
     margin: 3% auto;
     padding: 3%;
@@ -250,14 +266,17 @@ a:hover {
 
 .description > h1 {
     font-size: 230%;
+    height: 5.5%;
 }
 
 .description > h3 {
     font-size: 190%;
+    height: 5.5%;
 }
 
 .description > h4 {
     font-size: 160%;
+    height: 5.5%;
 }
 
 .description > p {
@@ -275,6 +294,7 @@ a:hover {
     border: none;
     background-color:inherit;
     outline-style: none;
+    font-family: sans-serif;
 }
 
 #modalClosing:hover {
@@ -286,6 +306,7 @@ a:hover {
 @media (max-width: 599px) {
     .navbar > input {
         width: 70%;
+        font-size: 20px;
     }
 
     .content {
@@ -349,5 +370,9 @@ a:hover {
     
     .description > * {
         height: 7.5%;
+    }
+
+    #modalClosing{
+        color: whitesmoke;
     }
 }

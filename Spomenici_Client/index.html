@@ -6,14 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Spomenici</title>
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica:ital@1&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
   <link rel="stylesheet" href="site.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 </head>
 
 <body>
   <div class="navbar">
-    <input placeholder="Pretrazite znamenitost" id="search" list="names">
+    <input placeholder="Pretrazite znamenitost ..." id="search" list="names">
     <datalist id="names"></datalist>
     <button class="searchButton" onclick="displayModal()"></button>
   </div>
@@ -31,8 +31,7 @@
         <ul id="ik"></ul>
         <button onclick="categoryListLoading('Pravoslavna kultura', 'pk')">Spomenici pravoslavne kulture</button>
         <ul id="pk"></ul>
-        <button onclick="categoryListLoading('Kulturno istorijski spomenici', 'ki')">Kulturno istorijski
-          spomenici</button>
+        <button onclick="categoryListLoading('Kulturno istorijski spomenici', 'ki')">Kulturno istorijski spomenici</button>
         <ul id="ki"></ul>
         <button onclick="categoryListLoading('Poruseni objekti', 'po')">Poruseni objekti</button>
         <ul id="po"></ul>
@@ -63,6 +62,7 @@
     <div id="modalContent"></div>
   </div>
   <script src="main.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCblLmu7ltpxGMk5_FcEBDC1VzA5jlX5JQ&map_ids=f55b320e52c3f82d&callback=initMap" async></script>
 </body>
 
 </html>
