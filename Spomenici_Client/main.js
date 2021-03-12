@@ -64,7 +64,7 @@ function loadSights() {
   xhttp.send('json');
 }
 
-loadSights();
+// loadSights();
 
 // Making a Leaflet map ------------------------------------------------------------------------------------
 
